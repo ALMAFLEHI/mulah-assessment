@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mulah Assessment</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Table 1 - Input Data</h1>
+    <table id="table1">
+      <tr><th>Index #</th><th>Value</th></tr>
+    </table>
+
+    <h2>Table 2 - Calculated Results</h2>
+    <table id="table2">
+      <tr><th>Category</th><th>Value</th></tr>
+      <tr><td>Alpha</td><td id="alpha"></td></tr>
+      <tr><td>Beta</td><td id="beta"></td></tr>
+      <tr><td>Charlie</td><td id="charlie"></td></tr>
+    </table>
+  </div>
+
+  <!-- Inline working JavaScript -->
+  <script>
+    // Table 1 values
+    const table1Data = [
+      { index: 'A1', value: 41 }, { index: 'A2', value: 18 }, { index: 'A3', value: 21 },
+      { index: 'A4', value: 63 }, { index: 'A5', value: 2 }, { index: 'A6', value: 53 },
+      { index: 'A7', value: 5 }, { index: 'A8', value: 57 }, { index: 'A9', value: 60 },
+      { index: 'A10', value: 93 }, { index: 'A11', value: 28 }, { index: 'A12', value: 3 },
+      { index: 'A13', value: 90 }, { index: 'A14', value: 39 }, { index: 'A15', value: 80 },
+      { index: 'A16', value: 88 }, { index: 'A17', value: 49 }, { index: 'A18', value: 60 },
+      { index: 'A19', value: 26 }, { index: 'A20', value: 28 }
+    ];
+
+    // Fill Table 1
+    const table1 = document.getElementById("table1");
+    table1Data.forEach(row => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `<td>${row.index}</td><td>${row.value}</td>`;
+      table1.appendChild(tr);
+    });
+
+    // Get required values
+    const A5 = table1Data.find(r => r.index === 'A5').value;
+    const A7 = table1Data.find(r => r.index === 'A7').value;
+    const A12 = table1Data.find(r => r.index === 'A12').value;
+    const A13 = table1Data.find(r => r.index === 'A13').value;
+    const A15 = table1Data.find(r => r.index === 'A15').value;
+    const A20 = table1Data.find(r => r.index === 'A20').value;
+
+    // Calculate Table 2
+    document.getElementById("alpha").innerText = A5 + A20;
+    document.getElementById("beta").innerText = A15 / A7;
+    document.getElementById("charlie").innerText = A13 * A12;
+  </script>
+</body>
+</html>
